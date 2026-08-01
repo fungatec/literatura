@@ -1,5 +1,5 @@
 /* ==========================================================================
-   FungaTec & FungiDocs - Ultra-Premium Rich & Modern Digital Web Card
+   FungaTec & FungiDocs - Expanded Full-Width Native Mobile Web Card
    ========================================================================== */
 
 /* Design Tokens & Variables */
@@ -11,8 +11,8 @@
     --color-fungidocs-bg: #0c2333;
     --color-fungidocs-accent: #38bdf8;
     --color-bg-dark: #091522;
-    --color-card-bg: rgba(255, 255, 255, 0.04);
-    --color-card-border: rgba(255, 255, 255, 0.08);
+    --color-card-bg: rgba(255, 255, 255, 0.05);
+    --color-card-border: rgba(255, 255, 255, 0.12);
     --color-text-main: #f8fafc;
     --color-text-muted: #94a3b8;
     
@@ -60,50 +60,44 @@ body {
     position: relative;
 }
 
-/* Ambient Background Glows */
-body::before {
-    content: '';
-    position: absolute;
-    top: -100px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(16, 185, 129, 0.1) 40%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Full Width Main Web Container */
+/* Main Container - Expanded Full Screen Native */
 .mobile-frame-container {
     width: 100%;
-    max-width: 680px;
+    max-width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     position: relative;
     z-index: 1;
     margin: 0 auto;
-    padding: 24px 16px 40px 16px;
+    padding: 16px 8px 32px 8px; /* Minimal side padding so elements span almost full screen */
+}
+
+/* Desktop Width Control */
+@media (min-width: 769px) {
+    .mobile-frame-container {
+        max-width: 600px;
+        padding: 30px 16px;
+    }
 }
 
 .card-content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
     width: 100%;
 }
 
-/* Glassmorphism Panel Container */
+/* Glassmorphism Panel Container - Full Edge to Edge Span */
 .glass-panel {
-    background: rgba(15, 32, 48, 0.65);
+    background: rgba(15, 32, 48, 0.75);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 28px;
-    padding: 36px 24px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 24px;
+    padding: 32px 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.12);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,7 +108,7 @@ body::before {
 }
 
 /* --------------------------------------------------------------------------
-   SECTION 1: HERO & BRANDING & SOCIAL MEDIA
+   SECTION 1: HERO & BRANDING & SOCIAL MEDIA (PROMINENT & FULL)
    -------------------------------------------------------------------------- */
 .hero-section {
     width: 100%;
@@ -124,21 +118,16 @@ body::before {
 }
 
 .brand-logo-card {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 24px 32px;
+    background: rgba(255, 255, 255, 0.96);
+    padding: 24px 28px;
     border-radius: 24px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
-    max-width: 340px;
-    width: 100%;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.3);
+    max-width: 380px;
+    width: 94%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 16px;
-    transition: transform 0.3s ease;
-}
-
-.brand-logo-card:hover {
-    transform: translateY(-2px);
 }
 
 .brand-img-logo {
@@ -148,15 +137,15 @@ body::before {
 }
 
 .brand-subtitle {
-    font-size: 1.15rem;
-    color: #e2e8f0;
+    font-size: 1.25rem;
+    color: #f1f5f9;
     font-weight: 600;
     margin-bottom: 20px;
-    letter-spacing: 0.2px;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    letter-spacing: 0.3px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 
-/* Social Media Bar - Prominent & Rich */
+/* Social Media Bar - Large Prominent Buttons */
 .social-links-wrapper {
     display: flex;
     flex-direction: column;
@@ -168,26 +157,26 @@ body::before {
 .social-bar {
     display: flex;
     gap: 20px;
-    background: rgba(15, 32, 48, 0.7);
+    background: rgba(15, 32, 48, 0.85);
     backdrop-filter: blur(16px);
-    padding: 14px 28px;
+    padding: 14px 32px;
     border-radius: 50px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .social-btn {
-    width: 52px;
-    height: 52px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #ffffff;
-    font-size: 1.45rem;
+    font-size: 1.55rem;
     text-decoration: none;
     transition: var(--transition-smooth);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
 
 .social-btn.facebook { background-color: var(--social-fb); }
@@ -198,8 +187,7 @@ body::before {
 .social-btn.tiktok { background-color: var(--social-tt); }
 
 .social-btn:hover {
-    transform: translateY(-5px) scale(1.12);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+    transform: translateY(-4px) scale(1.12);
 }
 
 .click-hint {
@@ -210,7 +198,7 @@ body::before {
 }
 
 .click-cursor-icon {
-    font-size: 1.4rem;
+    font-size: 1.45rem;
     color: #38bdf8;
     animation: clickBounce 1.5s infinite alternate;
 }
@@ -222,23 +210,23 @@ body::before {
 }
 
 /* --------------------------------------------------------------------------
-   SECTION 2: FUNGIDOCS FEATURE CARD (PROMINENT & FULL CONTENT)
+   SECTION 2: FUNGIDOCS DARK CARD (EXPANDED TO FULL SCREEN WIDTH)
    -------------------------------------------------------------------------- */
 .fungidocs-card {
     width: 100%;
 }
 
 .fungidocs-card .glass-panel {
-    background: linear-gradient(145deg, rgba(12, 35, 51, 0.85) 0%, rgba(6, 18, 28, 0.9) 100%);
-    border: 1px solid rgba(56, 189, 248, 0.2);
+    background: linear-gradient(145deg, rgba(12, 35, 51, 0.9) 0%, rgba(6, 18, 28, 0.95) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
 }
 
 .fungidocs-question {
     font-family: var(--font-heading);
-    font-size: 1.35rem;
-    font-weight: 700;
-    line-height: 1.4;
-    max-width: 520px;
+    font-size: 1.45rem;
+    font-weight: 800;
+    line-height: 1.35;
+    width: 100%;
     color: #ffffff;
     letter-spacing: -0.2px;
     margin-bottom: 24px;
@@ -249,7 +237,7 @@ body::before {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 260px;
+    max-width: 280px;
     width: 100%;
     margin-bottom: 24px;
 }
@@ -263,7 +251,7 @@ body::before {
 }
 
 .fungidocs-domain {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     color: #38bdf8;
     font-weight: 600;
     margin-top: 6px;
@@ -271,8 +259,8 @@ body::before {
 }
 
 .device-mockup-wrapper {
-    width: 100%;
-    max-width: 380px;
+    width: 95%;
+    max-width: 440px;
     margin-top: -4px;
     margin-bottom: 28px;
 }
@@ -285,75 +273,77 @@ body::before {
 }
 
 .fungidocs-desc {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #e2e8f0;
-    max-width: 440px;
-    line-height: 1.45;
-    margin-bottom: 18px;
+    width: 100%;
+    line-height: 1.42;
+    margin-bottom: 20px;
     font-weight: 500;
 }
 
 .badge-tag {
-    background: rgba(16, 185, 129, 0.12) !important;
-    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+    background: rgba(16, 185, 129, 0.15) !important;
+    border: 1px solid rgba(16, 185, 129, 0.35) !important;
     color: #34d399 !important;
-    font-size: 0.9rem !important;
+    font-size: 0.95rem !important;
     font-weight: 600;
-    padding: 8px 20px !important;
+    padding: 10px 24px !important;
     border-radius: 30px;
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
 }
 
 .badge-tag i {
     color: #34d399 !important;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
 }
 
 .cta-btn-visit {
     background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
     color: #ffffff;
     text-decoration: none;
-    padding: 14px 44px;
+    width: 88%;
+    max-width: 360px;
+    padding: 16px 0;
+    justify-content: center;
     border-radius: 35px;
     font-family: var(--font-heading);
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(2, 132, 199, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
     transition: var(--transition-smooth);
 }
 
 .cta-btn-visit:hover {
     background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 12px 30px rgba(2, 132, 199, 0.5);
+    transform: translateY(-3px);
 }
 
 /* --------------------------------------------------------------------------
-   SECTION 3: BIBLIOGRAPHY & BOOKSHELF (LARGE & PROMINENT)
+   SECTION 3: BIBLIOGRAPHY & BOOKSHELF (LARGE & EXPANDED)
    -------------------------------------------------------------------------- */
 .repository-section {
     width: 100%;
 }
 
 .repository-section .glass-panel {
-    background: linear-gradient(145deg, rgba(15, 32, 48, 0.7) 0%, rgba(8, 20, 32, 0.8) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(145deg, rgba(15, 32, 48, 0.8) 0%, rgba(8, 20, 32, 0.88) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .section-heading {
     font-family: var(--font-heading);
-    font-size: 1.9rem;
+    font-size: 2.1rem;
     font-weight: 800;
     color: #ffffff;
     letter-spacing: -0.3px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .bookshelf-container-link {
@@ -364,7 +354,7 @@ body::before {
     cursor: pointer;
     outline: none;
     text-decoration: none;
-    margin: 0 auto 12px auto;
+    margin: 0 auto 16px auto;
 }
 
 /* Single Badge Floating above Bookshelf */
@@ -376,10 +366,10 @@ body::before {
     z-index: 10;
     background: #f59e0b;
     color: #0f172a;
-    padding: 7px 16px;
-    border-radius: 18px;
+    padding: 8px 18px;
+    border-radius: 20px;
     font-family: var(--font-heading);
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-weight: 800;
     display: flex;
     align-items: center;
@@ -405,8 +395,8 @@ body::before {
 }
 
 .bookshelf-graphic {
-    width: 320px;
-    height: 320px;
+    width: 330px;
+    height: 330px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto;
@@ -424,18 +414,17 @@ body::before {
 }
 
 .bookshelf-container-link:hover .bookshelf-graphic {
-    transform: scale(1.05);
-    filter: drop-shadow(0 18px 30px rgba(0,0,0,0.5));
+    transform: scale(1.04);
 }
 
 .repo-static-text {
     color: #38bdf8;
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     font-weight: 600;
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    margin-top: 6px;
+    margin-top: 8px;
     user-select: none;
     cursor: default;
 }
@@ -447,7 +436,7 @@ body::before {
     padding: 24px;
     text-align: center;
     background: transparent;
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     color: var(--color-text-muted);
     width: 100%;
 }
