@@ -1,5 +1,5 @@
 /* ==========================================================================
-   FungaTec & FungiDocs - Full Width Responsive Web Architecture
+   FungaTec & FungiDocs - Ultra-Premium Rich & Modern Digital Web Card
    ========================================================================== */
 
 /* Design Tokens & Variables */
@@ -8,12 +8,13 @@
     --color-fungatec-blue: #0284c7;
     --color-fungatec-green: #10b981;
     --color-fungatec-dark: #0f172a;
-    --color-fungidocs-bg: #082d3b;
+    --color-fungidocs-bg: #0c2333;
     --color-fungidocs-accent: #38bdf8;
-    --color-bg-light: #f5f4f6;
-    --color-card-bg: #ffffff;
-    --color-text-main: #1e293b;
-    --color-text-muted: #64748b;
+    --color-bg-dark: #091522;
+    --color-card-bg: rgba(255, 255, 255, 0.04);
+    --color-card-border: rgba(255, 255, 255, 0.08);
+    --color-text-main: #f8fafc;
+    --color-text-muted: #94a3b8;
     
     /* Social Colors */
     --social-fb: #1877f2;
@@ -29,7 +30,7 @@
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Reset & Base Styles - 100% Full Width Responsive Web Page */
+/* Reset & Base Styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -44,7 +45,8 @@ html {
 
 body {
     font-family: var(--font-body);
-    background-color: var(--color-bg-light);
+    background: radial-gradient(circle at 50% 0%, #11263c 0%, #081420 60%, #040910 100%);
+    background-attachment: fixed;
     color: var(--color-text-main);
     display: flex;
     justify-content: center;
@@ -53,106 +55,139 @@ body {
     width: 100%;
     padding: 0;
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.6;
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Ambient Background Glows */
+body::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, rgba(16, 185, 129, 0.1) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* Full Width Main Web Container */
 .mobile-frame-container {
     width: 100%;
-    max-width: 100%;
-    background-color: var(--color-bg-light);
+    max-width: 680px;
     min-height: 100vh;
-    border-radius: 0;
-    box-shadow: none;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     position: relative;
-    margin: 0;
-    padding: 0;
+    z-index: 1;
+    margin: 0 auto;
+    padding: 24px 16px 40px 16px;
 }
 
 .card-content {
     flex: 1;
     display: flex;
     flex-direction: column;
+    gap: 24px;
     width: 100%;
+}
+
+/* Glassmorphism Panel Container */
+.glass-panel {
+    background: rgba(15, 32, 48, 0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    padding: 36px 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
 }
 
 /* --------------------------------------------------------------------------
    SECTION 1: HERO & BRANDING & SOCIAL MEDIA
    -------------------------------------------------------------------------- */
 .hero-section {
-    background-color: #f5f4f6;
-    padding: 40px 20px 30px 20px;
-    text-align: center;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
-    width: 100%;
 }
 
-.brand-logo-wrapper {
+.brand-logo-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 24px 32px;
+    border-radius: 24px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    max-width: 340px;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: 100%;
+    margin-bottom: 16px;
+    transition: transform 0.3s ease;
 }
 
-.fungatec-logo-box {
-    max-width: 280px;
-    width: 100%;
+.brand-logo-card:hover {
+    transform: translateY(-2px);
 }
 
 .brand-img-logo {
     width: 100%;
     height: auto;
     display: block;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.05));
-    transition: transform 0.4s ease;
 }
 
 .brand-subtitle {
-    font-size: 1.05rem;
-    color: #475569;
-    font-weight: 500;
-    margin-top: -2px;
-    margin-bottom: 6px;
-    letter-spacing: -0.2px;
+    font-size: 1.15rem;
+    color: #e2e8f0;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 0.2px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
-/* Social Media Bar */
+/* Social Media Bar - Prominent & Rich */
 .social-links-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     width: 100%;
 }
 
 .social-bar {
     display: flex;
-    gap: 18px;
-    background: #ffffff;
-    padding: 12px 24px;
-    border-radius: 40px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-    border: 1px solid #f1f5f9;
+    gap: 20px;
+    background: rgba(15, 32, 48, 0.7);
+    backdrop-filter: blur(16px);
+    padding: 14px 28px;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .social-btn {
-    width: 46px;
-    height: 46px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #ffffff;
-    font-size: 1.3rem;
+    font-size: 1.45rem;
     text-decoration: none;
     transition: var(--transition-smooth);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }
 
 .social-btn.facebook { background-color: var(--social-fb); }
@@ -163,66 +198,58 @@ body {
 .social-btn.tiktok { background-color: var(--social-tt); }
 
 .social-btn:hover {
-    transform: translateY(-4px) scale(1.12);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transform: translateY(-5px) scale(1.12);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
 }
 
 .click-hint {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -2px;
+    margin-top: 2px;
 }
 
 .click-cursor-icon {
-    font-size: 1.35rem;
-    color: #0f172a;
+    font-size: 1.4rem;
+    color: #38bdf8;
     animation: clickBounce 1.5s infinite alternate;
 }
 
 @keyframes clickBounce {
     0% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(4px, -6px) scale(1.2); }
+    50% { transform: translate(4px, -6px) scale(1.25); }
     100% { transform: translate(0, 0) scale(1); }
 }
 
 /* --------------------------------------------------------------------------
-   SECTION 2: FUNGIDOCS DARK CARD
+   SECTION 2: FUNGIDOCS FEATURE CARD (PROMINENT & FULL CONTENT)
    -------------------------------------------------------------------------- */
 .fungidocs-card {
-    background-color: var(--color-fungidocs-bg);
-    color: #ffffff;
-    padding: 55px 24px 50px 24px;
-    text-align: center;
-    position: relative;
     width: 100%;
 }
 
-.fungidocs-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+.fungidocs-card .glass-panel {
+    background: linear-gradient(145deg, rgba(12, 35, 51, 0.85) 0%, rgba(6, 18, 28, 0.9) 100%);
+    border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
 .fungidocs-question {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     font-weight: 700;
-    line-height: 1.35;
-    max-width: 480px;
+    line-height: 1.4;
+    max-width: 520px;
     color: #ffffff;
     letter-spacing: -0.2px;
-    margin-bottom: 22px;
+    margin-bottom: 24px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 
 .fungidocs-brand {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 240px;
+    max-width: 260px;
     width: 100%;
     margin-bottom: 24px;
 }
@@ -232,100 +259,101 @@ body {
     height: auto;
     display: block;
     mix-blend-mode: screen;
-    filter: brightness(1.4);
+    filter: brightness(1.5);
 }
 
 .fungidocs-domain {
-    font-size: 1rem;
-    color: #ffffff;
-    font-weight: 500;
-    margin-top: 4px;
-    letter-spacing: 0.3px;
+    font-size: 1.05rem;
+    color: #38bdf8;
+    font-weight: 600;
+    margin-top: 6px;
+    letter-spacing: 0.5px;
 }
 
 .device-mockup-wrapper {
     width: 100%;
-    max-width: 320px;
-    margin-top: -6px;
-    margin-bottom: 24px;
+    max-width: 380px;
+    margin-top: -4px;
+    margin-bottom: 28px;
 }
 
 .devices-img {
     width: 100%;
     height: auto;
     display: block;
-    filter: drop-shadow(0 12px 25px rgba(0,0,0,0.35));
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));
 }
 
 .fungidocs-desc {
-    font-size: 1rem;
-    color: #ffffff;
-    max-width: 380px;
-    line-height: 1.38;
-    margin-bottom: 16px;
+    font-size: 1.1rem;
+    color: #e2e8f0;
+    max-width: 440px;
+    line-height: 1.45;
+    margin-bottom: 18px;
+    font-weight: 500;
 }
 
 .badge-tag {
-    background: transparent !important;
-    color: #ffffff !important;
-    border: none !important;
-    font-size: 0.85rem;
+    background: rgba(16, 185, 129, 0.12) !important;
+    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+    color: #34d399 !important;
+    font-size: 0.9rem !important;
     font-weight: 600;
+    padding: 8px 20px !important;
+    border-radius: 30px;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 20px;
+    gap: 10px;
+    margin-bottom: 24px;
 }
 
 .badge-tag i {
     color: #34d399 !important;
-    font-size: 1rem;
+    font-size: 1.05rem;
 }
 
 .cta-btn-visit {
-    background: linear-gradient(135deg, #3b8296 0%, #2b6173 100%);
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
     color: #ffffff;
     text-decoration: none;
-    padding: 12px 36px;
-    border-radius: 30px;
+    padding: 14px 44px;
+    border-radius: 35px;
     font-family: var(--font-heading);
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.8px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 1px;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3), 0 6px 18px rgba(0,0,0,0.3);
+    gap: 12px;
+    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
     transition: var(--transition-smooth);
 }
 
 .cta-btn-visit:hover {
-    background: linear-gradient(135deg, #499bb3 0%, #34768c 100%);
-    transform: translateY(-2px);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4), 0 8px 22px rgba(0,0,0,0.4);
+    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(2, 132, 199, 0.5);
 }
 
 /* --------------------------------------------------------------------------
-   SECTION 3: BIBLIOGRAPHY & BOOKSHELF (BADGE MOVED HIGHER ABOVE BOOKS)
+   SECTION 3: BIBLIOGRAPHY & BOOKSHELF (LARGE & PROMINENT)
    -------------------------------------------------------------------------- */
 .repository-section {
-    background-color: #f5f4f6;
-    padding: 40px 20px 44px 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
     width: 100%;
+}
+
+.repository-section .glass-panel {
+    background: linear-gradient(145deg, rgba(15, 32, 48, 0.7) 0%, rgba(8, 20, 32, 0.8) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .section-heading {
     font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     font-weight: 800;
-    color: #0b2536;
+    color: #ffffff;
     letter-spacing: -0.3px;
+    margin-bottom: 20px;
 }
 
 .bookshelf-container-link {
@@ -336,49 +364,49 @@ body {
     cursor: pointer;
     outline: none;
     text-decoration: none;
-    margin: 0 auto;
+    margin: 0 auto 12px auto;
 }
 
-/* Badge Elevated to Top Arch Area (above the books so books are fully visible) */
+/* Single Badge Floating above Bookshelf */
 .shelf-interactive-badge {
     position: absolute;
-    top: 16%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
     background: #f59e0b;
     color: #0f172a;
-    padding: 5px 13px;
-    border-radius: 16px;
+    padding: 7px 16px;
+    border-radius: 18px;
     font-family: var(--font-heading);
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: 800;
     display: flex;
     align-items: center;
-    gap: 5px;
-    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.5);
+    gap: 6px;
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
     animation: floatBadgeCenter 2s infinite ease-in-out;
 }
 
 .shelf-interactive-badge::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -6px;
     left: 50%;
     transform: translateX(-50%);
-    border-width: 5px 5px 0 5px;
+    border-width: 6px 6px 0 6px;
     border-style: solid;
     border-color: #f59e0b transparent transparent transparent;
 }
 
 @keyframes floatBadgeCenter {
     0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-    50% { transform: translate(-50%, -50%) translateY(-4px); }
+    50% { transform: translate(-50%, -50%) translateY(-5px); }
 }
 
 .bookshelf-graphic {
-    width: 290px;
-    height: 290px;
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto;
@@ -392,35 +420,34 @@ body {
     width: 100%;
     height: 100%;
     display: block;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+    filter: drop-shadow(0 12px 25px rgba(0,0,0,0.4));
 }
 
 .bookshelf-container-link:hover .bookshelf-graphic {
-    transform: scale(1.04);
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.25));
+    transform: scale(1.05);
+    filter: drop-shadow(0 18px 30px rgba(0,0,0,0.5));
 }
 
 .repo-static-text {
-    color: #0284c7;
-    font-size: 0.95rem;
+    color: #38bdf8;
+    font-size: 1.05rem;
     font-weight: 600;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    margin-top: 4px;
+    gap: 10px;
+    margin-top: 6px;
     user-select: none;
     cursor: default;
 }
 
 /* --------------------------------------------------------------------------
-   FOOTER (CLEAN FULL WIDTH)
+   FOOTER (CLEAN & ELEGANT)
    -------------------------------------------------------------------------- */
 .app-footer {
-    padding: 20px;
+    padding: 24px;
     text-align: center;
-    background-color: #e2e8f0;
-    font-size: 0.85rem;
+    background: transparent;
+    font-size: 0.88rem;
     color: var(--color-text-muted);
-    border-top: 1px solid #cbd5e1;
     width: 100%;
 }
