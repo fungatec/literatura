@@ -4,7 +4,7 @@
  */
 
 // Master Google Drive Link
-const GOOGLE_DRIVE_FOLDER = 'LNK';
+const GOOGLE_DRIVE_FOLDER = 'https://drive.google.com/drive/folders/1DmNFRODjGR6LWBgbRhmy3PZJccYF8bjz?usp=sharing';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Drive button trigger if needed
